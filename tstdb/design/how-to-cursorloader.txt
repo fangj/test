@@ -1,0 +1,29 @@
+implements LoaderManager.LoaderCallbacks<Cursor>
+包含3个回调。
+   @Override
+    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        Uri uri=Uri.parse("content://com.example.tstdb.provider")  ;
+        return new CursorLoader(this,uri,null,null,null,null);//返回Loader做loading用
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> objectLoader, Cursor o) {
+        adapter.swapCursor(o);//loading完成，得到cursor.绑定cursor到adapter上，完成填充
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> objectLoader) {
+        adapter.swapCursor(null);//绑定null到adapter上
+    }
+​
+getLoaderManager().initLoader(0,null,this);​//启动Loader
+以上只是填充。如果希望数据更新时界面自动刷新：
+还要加2个通知
+http://stackoverflow.com/questions/7915050/cursorloader-not-updating-after-data-change
+Did you call setNotificationUri(ContentResolver cr, Uri uri) on the Cursor before returning it in ContentProvider.query()?
+
+关心uri改变
+And did you call getContext().getContentResolver().notifyChange(uri, null) in the 'insert' method of your ContentProvider?
+
+通知uri改变
+​​
