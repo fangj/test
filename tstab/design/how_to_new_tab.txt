@@ -1,0 +1,5 @@
+implements ActionBar.TabListener
+
+getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+ActionBar.Tab tab1=getActionBar().newTab().setText("I am new tab").setTag(0).setTabListener(this);
+getActionBar().addTab(tab1);
