@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tst quojs</title>
+	<script src="quo.js"></script>
+</head>
+<body>
+	<div id="test_el" style="background:gray;width:400px;height:400px;"></div>
+	<script>
+        $$('#test_el').tap(function() {
+        alert('tap');
+        });
+	$$('#test_el').swipe(function() {
+	    alert('swipe');
+	});
+	</script>
+	
+</body>
+</html>

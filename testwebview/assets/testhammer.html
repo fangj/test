@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Hammer</title>
+	<script src="jquery.js"></script>
+	<script src="hammer.js"></script>
+</head>
+<body>
+	<div id="test_el" style="background:red;width:300px;height:400px;"></div>
+	<script>
+	var element = document.getElementById('test_el');
+    var hammertime = Hammer(element).on("tap", function(event) {
+        alert('hello!');
+    });
+    Hammer(element).on("swipeleft", function(event) {
+        alert('swipeleft!');
+    });
+    
+    </script>
+</body>
+</html>
