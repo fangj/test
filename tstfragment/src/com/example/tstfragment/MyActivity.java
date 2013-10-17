@@ -17,8 +17,8 @@ public class MyActivity extends Activity {
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        Fragment myfrag=new MyFragment();
-        ft.add(R.id.container,myfrag);
+        Fragment myfrag = new MyFragment();
+        ft.add(R.id.container, myfrag);
         ft.commit();
 
     }
