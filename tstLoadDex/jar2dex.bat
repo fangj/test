@@ -1,0 +1,1 @@
+dx --dex --output=test_out.jar test_in.jar
